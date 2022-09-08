@@ -11,7 +11,7 @@ const getProducts =  async (req, res) => {
         const data = await productsModel.find();
         res.send({data});
     }catch(e){
-        handleHttpError(res,"ERROR_GET_PRODUCTS")
+        handleHttpError(res,"ERROR_GET_PRODUCTS");
     }
 }
 
@@ -25,12 +25,12 @@ const getProduct = async (req, res) => {
         const id = req.params.id;
         const data = await productsModel.findOne({where:{id:id}});
         if(data == null){
-            handleHttpError(res,"NOT_PRODUCT_EXITS")
+            handleHttpError(res,"NOT_PRODUCT_EXITS");
         }else{
             res.send({data});
         }
     }catch(e){
-        handleHttpError(res,"ERROR_GET_PRODUCT")
+        handleHttpError(res,"ERROR_GET_PRODUCT");
     }
 }
 
@@ -45,7 +45,7 @@ const createProduct = async (req, res) => {
         const data = await productsModel.create(body);
         res.send({data});
     }catch(e){
-        handleHttpError(res,"ERROR_POST_PRODUCT")
+        handleHttpError(res,"ERROR_POST_PRODUCT");
     }
 }
 
@@ -61,7 +61,7 @@ const updateProduct = async (req, res) => {
         const data = await productsModel.update(body,{ where: { id: id}});
         res.send({data});
     }catch(e){
-        handleHttpError(res,"ERROR_PUT_PRODUCT")
+        handleHttpError(res,"ERROR_PUT_PRODUCT");
     }
 }
 
@@ -73,10 +73,10 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
     try{
         const id = req.params.id;
-        const data = await productsModel.destroy({where:{id: id}})
-        res.send({data})
+        const data = await productsModel.destroy({where:{id: id}});
+        res.send({data});
     }catch(e){
-        handleHttpError(res,"ERROR_DELETE_PRODUCT")
+        handleHttpError(res,"ERROR_DELETE_PRODUCT");
     }
 }
 

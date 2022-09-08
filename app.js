@@ -14,3 +14,5 @@ app.use("/api/v1",require('./routes'));
 app.listen(port);
 
 dbConnectMySql();
+
+module.exports = app;

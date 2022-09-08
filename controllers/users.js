@@ -73,8 +73,8 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     try{
         const id = req.params.id;
-        const data = await usersModel.destroy({where:{id: id}})
-        res.send({data})
+        const data = await usersModel.destroy({where:{id: id}});
+        res.send({data});
     }catch(e){
         handleHttpError(res, "ERROR_DELETE_USER");
     }
